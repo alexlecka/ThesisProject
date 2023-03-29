@@ -63,6 +63,7 @@ function add_cld_shdw_mask(img) {
   return img.addBands(is_cld_shdw); // to just edit the starting image
 }
 
+// mask out clouds in the image
 exports.filterClouds = function(img) {
   var clouded = add_cld_shdw_mask(img);
   return clouded.updateMask(clouded.select('cloudmask').eq(0)).divide(10000);
